@@ -10,13 +10,18 @@ import SwiftUI
 import PhotosUI
 import os
 
-typealias PHPickerViewCompletionHandler = ( ([PHPickerResult]) -> Void)
+public typealias PHPickerViewCompletionHandler = ( ([PHPickerResult]) -> Void)
 
 public struct SwiftUIPHPicker: UIViewControllerRepresentable {
     var configuration: PHPickerConfiguration
     var completionHandler: PHPickerViewCompletionHandler?
     
     let logger = Logger(subsystem: "com.smalldesksoftware.SwiftUIPHPicker", category: "SwiftUIPHPicker")
+    
+    public init(configuration: PHPickerConfiguration, completion: PHPickerViewCompletionHandler? = nil) {
+        self.configuration = configuration
+        self.completionHandler = completion
+    }
     
     public func makeCoordinator() -> Coordinator {
         logger.debug("makeCoordinator called")
@@ -43,7 +48,7 @@ public struct SwiftUIPHPicker: UIViewControllerRepresentable {
         }
         
         public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            parent.logger.debug("didFInishPicking called")
+            parent.logger.debug("didFinishPicking called")
             picker.dismiss(animated: true)
             self.parent.completionHandler?(results)
         }
