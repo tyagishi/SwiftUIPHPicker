@@ -4,7 +4,7 @@ Simple SwiftUI wrapper for PHPickerViewController
 
 ## Example App with SwiftUIPHPicker
 
-![ExampleApp](https://user-images.githubusercontent.com/6419800/101324664-f3759880-38ad-11eb-8c7f-36f74e81d5ac.gif)
+<img src="https://user-images.githubusercontent.com/6419800/101324664-f3759880-38ad-11eb-8c7f-36f74e81d5ac.gif" width="300">
 
 ## Example App (code)
 ```
